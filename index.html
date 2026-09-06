@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- PWA & Mobile Web App Meta Tags -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="BabyBites">
+  <meta name="theme-color" content="#4F46E5">
+
+  <!-- Cute Baby App Icons (SVG Data URIs) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bgGrad%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23818CF8%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%234F46E5%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bowlGrad%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23FFFFFF%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23F1F5F9%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22foodGrad%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%220%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%2334D399%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%2310B981%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22spoonGrad%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23FDE68A%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23F59E0B%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%3C/defs%3E%0A%0A%20%20%3C%21--%20App%20Icon%20Background%20with%20smooth%20rounded%20rect%20--%3E%0A%20%20%3Crect%20width%3D%22512%22%20height%3D%22512%22%20rx%3D%22115%22%20fill%3D%22url%28%23bgGrad%29%22/%3E%0A%0A%20%20%3C%21--%20Warm%20background%20glow%20circle%20--%3E%0A%20%20%3Ccircle%20cx%3D%22256%22%20cy%3D%22256%22%20r%3D%22190%22%20fill%3D%22%23EEF2FF%22%20opacity%3D%220.15%22/%3E%0A%0A%20%20%3C%21--%20Baby%20Food%20Puree%20surface%20--%3E%0A%20%20%3Cellipse%20cx%3D%22256%22%20cy%3D%22285%22%20rx%3D%22145%22%20ry%3D%2238%22%20fill%3D%22url%28%23foodGrad%29%22/%3E%0A%0A%20%20%3C%21--%20Cute%20Food%20Puree%20sparkles%20/%20swirls%20--%3E%0A%20%20%3Ccircle%20cx%3D%22220%22%20cy%3D%22280%22%20r%3D%229%22%20fill%3D%22%23A7F3D0%22%20opacity%3D%220.8%22/%3E%0A%20%20%3Ccircle%20cx%3D%22290%22%20cy%3D%22290%22%20r%3D%226%22%20fill%3D%22%23A7F3D0%22%20opacity%3D%220.8%22/%3E%0A%0A%20%20%3C%21--%20Bowl%20Body%20--%3E%0A%20%20%3Cpath%20d%3D%22M%20100%20280%20C%20105%20385%2C%20407%20385%2C%20412%20280%20Z%22%20fill%3D%22url%28%23bowlGrad%29%22/%3E%0A%20%20%3Cpath%20d%3D%22M%20170%20375%20L%20342%20375%20C%20330%20398%2C%20182%20398%2C%20170%20375%20Z%22%20fill%3D%22%23E2E8F0%22/%3E%0A%0A%20%20%3C%21--%20Bowl%20Cute%20Kawaii%20Face%20--%3E%0A%20%20%3C%21--%20Left%20eye%20--%3E%0A%20%20%3Ccircle%20cx%3D%22215%22%20cy%3D%22325%22%20r%3D%229%22%20fill%3D%22%23312E81%22/%3E%0A%20%20%3Ccircle%20cx%3D%22218%22%20cy%3D%22322%22%20r%3D%223%22%20fill%3D%22%23FFFFFF%22/%3E%0A%20%20%3C%21--%20Right%20eye%20--%3E%0A%20%20%3Ccircle%20cx%3D%22297%22%20cy%3D%22325%22%20r%3D%229%22%20fill%3D%22%23312E81%22/%3E%0A%20%20%3Ccircle%20cx%3D%22300%22%20cy%3D%22322%22%20r%3D%223%22%20fill%3D%22%23FFFFFF%22/%3E%0A%20%20%3C%21--%20Rosy%20Cheeks%20--%3E%0A%20%20%3Cellipse%20cx%3D%22195%22%20cy%3D%22336%22%20rx%3D%2212%22%20ry%3D%227%22%20fill%3D%22%23FCA5A5%22%20opacity%3D%220.85%22/%3E%0A%20%20%3Cellipse%20cx%3D%22317%22%20cy%3D%22336%22%20rx%3D%2212%22%20ry%3D%227%22%20fill%3D%22%23FCA5A5%22%20opacity%3D%220.85%22/%3E%0A%20%20%3C%21--%20Smile%20--%3E%0A%20%20%3Cpath%20d%3D%22M%20245%20336%20Q%20256%20347%20267%20336%22%20stroke%3D%22%23312E81%22%20stroke-width%3D%224%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22/%3E%0A%0A%20%20%3C%21--%20Baby%20Spoon%20angled%20in%20the%20bowl%20--%3E%0A%20%20%3Cg%20transform%3D%22rotate%2832%20320%20200%29%22%3E%0A%20%20%20%20%3C%21--%20Spoon%20handle%20--%3E%0A%20%20%20%20%3Crect%20x%3D%22306%22%20y%3D%2280%22%20width%3D%2228%22%20height%3D%22155%22%20rx%3D%2214%22%20fill%3D%22url%28%23spoonGrad%29%22/%3E%0A%20%20%20%20%3C%21--%20Spoon%20head%20--%3E%0A%20%20%20%20%3Cellipse%20cx%3D%22320%22%20cy%3D%22245%22%20rx%3D%2234%22%20ry%3D%2246%22%20fill%3D%22url%28%23spoonGrad%29%22/%3E%0A%20%20%20%20%3C%21--%20Spoon%20highlight%20--%3E%0A%20%20%20%20%3Cellipse%20cx%3D%22313%22%20cy%3D%22240%22%20rx%3D%2210%22%20ry%3D%2224%22%20fill%3D%22%23FEF3C7%22%20opacity%3D%220.6%22/%3E%0A%20%20%3C/g%3E%0A%0A%20%20%3C%21--%20Little%20Love%20Heart%20floating%20on%20top%20--%3E%0A%20%20%3Cpath%20d%3D%22M%20256%20160%20C%20256%20142%20238%20126%20218%20126%20C%20196%20126%20182%20144%20182%20166%20C%20182%20196%20230%20226%20256%20242%20C%20282%20226%20330%20196%20330%20166%20C%20330%20144%20316%20126%20294%20126%20C%20274%20126%20256%20142%20256%20160%20Z%22%20fill%3D%22%23F43F5E%22/%3E%0A%3C/svg%3E">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bgGrad%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23818CF8%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%234F46E5%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bowlGrad%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23FFFFFF%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23F1F5F9%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22foodGrad%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%220%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%2334D399%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%2310B981%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22spoonGrad%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23FDE68A%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23F59E0B%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%3C/defs%3E%0A%0A%20%20%3C%21--%20App%20Icon%20Background%20with%20smooth%20rounded%20rect%20--%3E%0A%20%20%3Crect%20width%3D%22512%22%20height%3D%22512%22%20rx%3D%22115%22%20fill%3D%22url%28%23bgGrad%29%22/%3E%0A%0A%20%20%3C%21--%20Warm%20background%20glow%20circle%20--%3E%0A%20%20%3Ccircle%20cx%3D%22256%22%20cy%3D%22256%22%20r%3D%22190%22%20fill%3D%22%23EEF2FF%22%20opacity%3D%220.15%22/%3E%0A%0A%20%20%3C%21--%20Baby%20Food%20Puree%20surface%20--%3E%0A%20%20%3Cellipse%20cx%3D%22256%22%20cy%3D%22285%22%20rx%3D%22145%22%20ry%3D%2238%22%20fill%3D%22url%28%23foodGrad%29%22/%3E%0A%0A%20%20%3C%21--%20Cute%20Food%20Puree%20sparkles%20/%20swirls%20--%3E%0A%20%20%3Ccircle%20cx%3D%22220%22%20cy%3D%22280%22%20r%3D%229%22%20fill%3D%22%23A7F3D0%22%20opacity%3D%220.8%22/%3E%0A%20%20%3Ccircle%20cx%3D%22290%22%20cy%3D%22290%22%20r%3D%226%22%20fill%3D%22%23A7F3D0%22%20opacity%3D%220.8%22/%3E%0A%0A%20%20%3C%21--%20Bowl%20Body%20--%3E%0A%20%20%3Cpath%20d%3D%22M%20100%20280%20C%20105%20385%2C%20407%20385%2C%20412%20280%20Z%22%20fill%3D%22url%28%23bowlGrad%29%22/%3E%0A%20%20%3Cpath%20d%3D%22M%20170%20375%20L%20342%20375%20C%20330%20398%2C%20182%20398%2C%20170%20375%20Z%22%20fill%3D%22%23E2E8F0%22/%3E%0A%0A%20%20%3C%21--%20Bowl%20Cute%20Kawaii%20Face%20--%3E%0A%20%20%3C%21--%20Left%20eye%20--%3E%0A%20%20%3Ccircle%20cx%3D%22215%22%20cy%3D%22325%22%20r%3D%229%22%20fill%3D%22%23312E81%22/%3E%0A%20%20%3Ccircle%20cx%3D%22218%22%20cy%3D%22322%22%20r%3D%223%22%20fill%3D%22%23FFFFFF%22/%3E%0A%20%20%3C%21--%20Right%20eye%20--%3E%0A%20%20%3Ccircle%20cx%3D%22297%22%20cy%3D%22325%22%20r%3D%229%22%20fill%3D%22%23312E81%22/%3E%0A%20%20%3Ccircle%20cx%3D%22300%22%20cy%3D%22322%22%20r%3D%223%22%20fill%3D%22%23FFFFFF%22/%3E%0A%20%20%3C%21--%20Rosy%20Cheeks%20--%3E%0A%20%20%3Cellipse%20cx%3D%22195%22%20cy%3D%22336%22%20rx%3D%2212%22%20ry%3D%227%22%20fill%3D%22%23FCA5A5%22%20opacity%3D%220.85%22/%3E%0A%20%20%3Cellipse%20cx%3D%22317%22%20cy%3D%22336%22%20rx%3D%2212%22%20ry%3D%227%22%20fill%3D%22%23FCA5A5%22%20opacity%3D%220.85%22/%3E%0A%20%20%3C%21--%20Smile%20--%3E%0A%20%20%3Cpath%20d%3D%22M%20245%20336%20Q%20256%20347%20267%20336%22%20stroke%3D%22%23312E81%22%20stroke-width%3D%224%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22/%3E%0A%0A%20%20%3C%21--%20Baby%20Spoon%20angled%20in%20the%20bowl%20--%3E%0A%20%20%3Cg%20transform%3D%22rotate%2832%20320%20200%29%22%3E%0A%20%20%20%20%3C%21--%20Spoon%20handle%20--%3E%0A%20%20%20%20%3Crect%20x%3D%22306%22%20y%3D%2280%22%20width%3D%2228%22%20height%3D%22155%22%20rx%3D%2214%22%20fill%3D%22url%28%23spoonGrad%29%22/%3E%0A%20%20%20%20%3C%21--%20Spoon%20head%20--%3E%0A%20%20%20%20%3Cellipse%20cx%3D%22320%22%20cy%3D%22245%22%20rx%3D%2234%22%20ry%3D%2246%22%20fill%3D%22url%28%23spoonGrad%29%22/%3E%0A%20%20%20%20%3C%21--%20Spoon%20highlight%20--%3E%0A%20%20%20%20%3Cellipse%20cx%3D%22313%22%20cy%3D%22240%22%20rx%3D%2210%22%20ry%3D%2224%22%20fill%3D%22%23FEF3C7%22%20opacity%3D%220.6%22/%3E%0A%20%20%3C/g%3E%0A%0A%20%20%3C%21--%20Little%20Love%20Heart%20floating%20on%20top%20--%3E%0A%20%20%3Cpath%20d%3D%22M%20256%20160%20C%20256%20142%20238%20126%20218%20126%20C%20196%20126%20182%20144%20182%20166%20C%20182%20196%20230%20226%20256%20242%20C%20282%20226%20330%20196%20330%20166%20C%20330%20144%20316%20126%20294%20126%20C%20274%20126%20256%20142%20256%20160%20Z%22%20fill%3D%22%23F43F5E%22/%3E%0A%3C/svg%3E">
+  <link rel="mask-icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bgGrad%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23818CF8%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%234F46E5%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bowlGrad%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23FFFFFF%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23F1F5F9%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22foodGrad%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%220%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%2334D399%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%2310B981%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22spoonGrad%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23FDE68A%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23F59E0B%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%3C/defs%3E%0A%0A%20%20%3C%21--%20App%20Icon%20Background%20with%20smooth%20rounded%20rect%20--%3E%0A%20%20%3Crect%20width%3D%22512%22%20height%3D%22512%22%20rx%3D%22115%22%20fill%3D%22url%28%23bgGrad%29%22/%3E%0A%0A%20%20%3C%21--%20Warm%20background%20glow%20circle%20--%3E%0A%20%20%3Ccircle%20cx%3D%22256%22%20cy%3D%22256%22%20r%3D%22190%22%20fill%3D%22%23EEF2FF%22%20opacity%3D%220.15%22/%3E%0A%0A%20%20%3C%21--%20Baby%20Food%20Puree%20surface%20--%3E%0A%20%20%3Cellipse%20cx%3D%22256%22%20cy%3D%22285%22%20rx%3D%22145%22%20ry%3D%2238%22%20fill%3D%22url%28%23foodGrad%29%22/%3E%0A%0A%20%20%3C%21--%20Cute%20Food%20Puree%20sparkles%20/%20swirls%20--%3E%0A%20%20%3Ccircle%20cx%3D%22220%22%20cy%3D%22280%22%20r%3D%229%22%20fill%3D%22%23A7F3D0%22%20opacity%3D%220.8%22/%3E%0A%20%20%3Ccircle%20cx%3D%22290%22%20cy%3D%22290%22%20r%3D%226%22%20fill%3D%22%23A7F3D0%22%20opacity%3D%220.8%22/%3E%0A%0A%20%20%3C%21--%20Bowl%20Body%20--%3E%0A%20%20%3Cpath%20d%3D%22M%20100%20280%20C%20105%20385%2C%20407%20385%2C%20412%20280%20Z%22%20fill%3D%22url%28%23bowlGrad%29%22/%3E%0A%20%20%3Cpath%20d%3D%22M%20170%20375%20L%20342%20375%20C%20330%20398%2C%20182%20398%2C%20170%20375%20Z%22%20fill%3D%22%23E2E8F0%22/%3E%0A%0A%20%20%3C%21--%20Bowl%20Cute%20Kawaii%20Face%20--%3E%0A%20%20%3C%21--%20Left%20eye%20--%3E%0A%20%20%3Ccircle%20cx%3D%22215%22%20cy%3D%22325%22%20r%3D%229%22%20fill%3D%22%23312E81%22/%3E%0A%20%20%3Ccircle%20cx%3D%22218%22%20cy%3D%22322%22%20r%3D%223%22%20fill%3D%22%23FFFFFF%22/%3E%0A%20%20%3C%21--%20Right%20eye%20--%3E%0A%20%20%3Ccircle%20cx%3D%22297%22%20cy%3D%22325%22%20r%3D%229%22%20fill%3D%22%23312E81%22/%3E%0A%20%20%3Ccircle%20cx%3D%22300%22%20cy%3D%22322%22%20r%3D%223%22%20fill%3D%22%23FFFFFF%22/%3E%0A%20%20%3C%21--%20Rosy%20Cheeks%20--%3E%0A%20%20%3Cellipse%20cx%3D%22195%22%20cy%3D%22336%22%20rx%3D%2212%22%20ry%3D%227%22%20fill%3D%22%23FCA5A5%22%20opacity%3D%220.85%22/%3E%0A%20%20%3Cellipse%20cx%3D%22317%22%20cy%3D%22336%22%20rx%3D%2212%22%20ry%3D%227%22%20fill%3D%22%23FCA5A5%22%20opacity%3D%220.85%22/%3E%0A%20%20%3C%21--%20Smile%20--%3E%0A%20%20%3Cpath%20d%3D%22M%20245%20336%20Q%20256%20347%20267%20336%22%20stroke%3D%22%23312E81%22%20stroke-width%3D%224%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22/%3E%0A%0A%20%20%3C%21--%20Baby%20Spoon%20angled%20in%20the%20bowl%20--%3E%0A%20%20%3Cg%20transform%3D%22rotate%2832%20320%20200%29%22%3E%0A%20%20%20%20%3C%21--%20Spoon%20handle%20--%3E%0A%20%20%20%20%3Crect%20x%3D%22306%22%20y%3D%2280%22%20width%3D%2228%22%20height%3D%22155%22%20rx%3D%2214%22%20fill%3D%22url%28%23spoonGrad%29%22/%3E%0A%20%20%20%20%3C%21--%20Spoon%20head%20--%3E%0A%20%20%20%20%3Cellipse%20cx%3D%22320%22%20cy%3D%22245%22%20rx%3D%2234%22%20ry%3D%2246%22%20fill%3D%22url%28%23spoonGrad%29%22/%3E%0A%20%20%20%20%3C%21--%20Spoon%20highlight%20--%3E%0A%20%20%20%20%3Cellipse%20cx%3D%22313%22%20cy%3D%22240%22%20rx%3D%2210%22%20ry%3D%2224%22%20fill%3D%22%23FEF3C7%22%20opacity%3D%220.6%22/%3E%0A%20%20%3C/g%3E%0A%0A%20%20%3C%21--%20Little%20Love%20Heart%20floating%20on%20top%20--%3E%0A%20%20%3Cpath%20d%3D%22M%20256%20160%20C%20256%20142%20238%20126%20218%20126%20C%20196%20126%20182%20144%20182%20166%20C%20182%20196%20230%20226%20256%20242%20C%20282%20226%20330%20196%20330%20166%20C%20330%20144%20316%20126%20294%20126%20C%20274%20126%20256%20142%20256%20160%20Z%22%20fill%3D%22%23F43F5E%22/%3E%0A%3C/svg%3E" color="#4F46E5">
+
+  <title>BabyBites - Παρακολούθηση Τροφών & Πρώτες Γεύσεις</title>
+  <style>
+    :root {
+      --primary: #4F46E5;
+      --primary-soft: #EEF2FF;
+      --secondary: #10B981;
+      --accent: #F59E0B;
+      --danger: #EF4444;
+      --bg: #F8FAFC;
+      --card-bg: #FFFFFF;
+      --text-main: #1E293B;
+      --text-muted: #64748B;
+      --border: #E2E8F0;
+      --radius: 16px;
+      --shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      padding-bottom: 80px;
+    }
+
+    .container {
+      max-width: 768px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    /* Header & Progress */
+    header {
+      background: white;
+      padding: 20px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .header-title h1 {
+      font-size: 20px;
+      font-weight: 800;
+      color: #312E81;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .header-title p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .export-btn {
+      background: #0EA5E9;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 6px rgba(14, 165, 233, 0.3);
+    }
+
+    .export-btn:hover {
+      background: #0284C7;
+    }
+
+    /* Progress Box with Custom Goal */
+    .progress-box {
+      background: var(--primary-soft);
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid #C7D2FE;
+    }
+
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #3730A3;
+    }
+
+    .goal-changer {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+      font-size: 12px;
+      color: var(--primary);
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    .progress-bar-bg {
+      background: #E0E7FF;
+      height: 12px;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      background: linear-gradient(90deg, #6366F1, #10B981);
+      height: 100%;
+      width: 0%;
+      border-radius: 6px;
+      transition: width 0.4s ease;
+    }
+
+    /* Tabs Navigation */
+    .tabs {
+      display: flex;
+      background: white;
+      border-radius: 12px;
+      padding: 4px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .tab-btn {
+      flex: 1;
+      text-align: center;
+      padding: 10px 4px;
+      border: none;
+      background: none;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn.active {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 2px 8px rgba(79, 70, 229, 0.25);
+    }
+
+    /* Section Panels */
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    /* Add / Edit Food Form */
+    .form-card {
+      background: white;
+      padding: 20px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 24px;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-card.editing-mode {
+      border: 2px solid var(--accent);
+    }
+
+    .form-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .form-card h2 {
+      font-size: 17px;
+      color: #1E293B;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cancel-edit-btn {
+      display: none;
+      background: #F1F5F9;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 12px;
+      padding: 5px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .cancel-edit-btn:hover {
+      background: #E2E8F0;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: #475569;
+      margin-bottom: 6px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 14px;
+      color: var(--text-main);
+      outline: none;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+    }
+
+    /* Voice recording input wrapper */
+    .voice-input-wrapper {
+      display: flex;
+      gap: 8px;
+    }
+
+    .mic-btn {
+      background: #FEE2E2;
+      border: 1px solid #FECACA;
+      color: #EF4444;
+      padding: 0 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .mic-btn.recording {
+      background: #EF4444;
+      color: white;
+      animation: pulse 1s infinite alternate;
+    }
+
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to { transform: scale(1.08); }
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .submit-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 6px;
+      transition: background 0.2s;
+    }
+
+    .submit-btn:hover {
+      background: #4338CA;
+    }
+
+    /* Category Management Styles */
+    .manage-card {
+      background: white;
+      padding: 20px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+    }
+
+    .manage-card h3 {
+      font-size: 16px;
+      margin-bottom: 12px;
+      color: #1E293B;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .new-cat-box {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .category-list-items {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .category-item-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 14px;
+      background: #F8FAFC;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .category-item-name {
+      font-size: 14px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cat-food-count {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: normal;
+    }
+
+    /* Filters Bar */
+    .filters-bar-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .filters-bar {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      scrollbar-width: thin;
+      flex: 1;
+    }
+
+    .filter-chip {
+      background: white;
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      white-space: nowrap;
+      cursor: pointer;
+      color: var(--text-muted);
+      font-weight: 500;
+      transition: all 0.15s;
+    }
+
+    .filter-chip.active {
+      background: #312E81;
+      color: white;
+      border-color: #312E81;
+    }
+
+    /* Food Cards */
+    .foods-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .food-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: transform 0.1s ease;
+    }
+
+    .food-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .food-title-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .food-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .cat-badge {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 12px;
+      background: #EEF2FF;
+      color: #4F46E5;
+      border: 1px solid #C7D2FE;
+    }
+
+    .food-status-badge {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .status-loved { background: #FCE7F3; color: #BE185D; }
+    .status-good { background: #D1FAE5; color: #047857; }
+    .status-neutral { background: #FEF3C7; color: #B45309; }
+    .status-disliked { background: #FEE2E2; color: #B91C1C; }
+    .status-allergy { background: #EF4444; color: white; }
+
+    .food-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--text-muted);
+      border-top: 1px solid #F1F5F9;
+      padding-top: 8px;
+    }
+
+    .food-notes {
+      font-size: 13px;
+      color: #334155;
+      background: #F8FAFC;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-style: italic;
+      border-left: 3px solid #CBD5E1;
+    }
+
+    .food-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 4px;
+    }
+
+    .counter-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #F1F5F9;
+      padding: 4px 8px;
+      border-radius: 10px;
+    }
+
+    .counter-btn {
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      border: 1px solid #CBD5E1;
+      background: white;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .counter-btn:hover {
+      background: #E2E8F0;
+    }
+
+    .count-number {
+      font-weight: 700;
+      font-size: 13px;
+      padding: 0 4px;
+      color: #1E293B;
+    }
+
+    .action-icons {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-action-pill {
+      border: 1px solid var(--border);
+      background: white;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      color: #475569;
+      padding: 5px 10px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.15s;
+    }
+
+    .btn-action-pill:hover {
+      background: var(--primary-soft);
+      color: var(--primary);
+      border-color: #C7D2FE;
+    }
+
+    .btn-delete {
+      border-color: #FEE2E2;
+      color: #EF4444;
+    }
+
+    .btn-delete:hover {
+      background: #FEE2E2;
+      color: #B91C1C;
+    }
+
+    /* Empty state */
+    .empty-state {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-muted);
+      background: white;
+      border-radius: var(--radius);
+      border: 1px dashed var(--border);
+    }
+
+    .empty-state-icon {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    /* Logs Table / Timeline */
+    .log-item {
+      background: white;
+      padding: 14px;
+      border-radius: 12px;
+      margin-bottom: 10px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      border-left: 4px solid var(--primary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .log-left {
+      flex: 1;
+    }
+
+    .log-left h4 {
+      font-size: 14px;
+      margin-bottom: 2px;
+    }
+
+    .log-left p {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .log-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+    }
+
+    .log-date {
+      font-size: 12px;
+      font-weight: 600;
+      color: #64748B;
+    }
+
+    .reset-all-btn {
+      background: #FEE2E2;
+      color: #EF4444;
+      border: 1px solid #FECACA;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .reset-all-btn:hover {
+      background: #EF4444;
+      color: white;
+    }
+
+    /* Print Stylesheet */
+    @media print {
+      body {
+        background: white;
+        padding-bottom: 0;
+      }
+      .tabs, .filters-bar-wrapper, .form-card, .counter-btn, .btn-action-pill, .export-btn, .mic-btn, .counter-group, .manage-card, .goal-changer, .reset-all-btn {
+        display: none !important;
+      }
+      .tab-content {
+        display: block !important;
+      }
+      header {
+        box-shadow: none;
+        border: 1px solid #ccc;
+      }
+      .food-card {
+        box-shadow: none;
+        border: 1px solid #ddd;
+        break-inside: avoid;
+        margin-bottom: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="header-top">
+        <div class="header-title">
+          <h1>👶 BabyBites</h1>
+          <p>Ημερολόγιο Νέων Τροφών & Απογαλακτισμού</p>
+        </div>
+        <div class="header-actions">
+          <button class="export-btn" onclick="exportToPDF()">
+            📄 PDF Εξαγωγή
+          </button>
+        </div>
+      </div>
+
+      <!-- Foods Challenge Tracker with Customizable Goal -->
+      <div class="progress-box">
+        <div class="progress-header">
+          <span>🎯 Πρόοδος Δοκιμών</span>
+          <div>
+            <span id="progress-text">0 / 100 Τροφές</span>
+            <span class="goal-changer" onclick="changeGoal()" title="Αλλαγή Στόχου (π.χ. 50, 100, 150)">✏️ Στόχος</span>
+          </div>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="progress-bar-fill"></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab('foods')">🥗 Τροφές</button>
+      <button class="tab-btn" id="nav-add-btn" onclick="switchTab('add')">➕ Προσθήκη</button>
+      <button class="tab-btn" onclick="switchTab('logs')">📜 Ιστορικό</button>
+      <button class="tab-btn" onclick="switchTab('categories')">📁 Κατηγορίες</button>
+    </div>
+
+    <!-- TAB 1: FOOD LIST VIEW -->
+    <div id="tab-foods" class="tab-content active">
+      <div class="filters-bar-wrapper">
+        <div class="filters-bar" id="category-filters">
+          <!-- Dynamically populated filter chips -->
+        </div>
+      </div>
+
+      <!-- Food items cards container -->
+      <div class="foods-list" id="foods-container">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+
+    <!-- TAB 2: ADD / EDIT FOOD VIEW -->
+    <div id="tab-add" class="tab-content">
+      <div class="form-card" id="form-card-container">
+        <div class="form-card-header">
+          <h2 id="form-title">➕ Καταχώριση Νέας Τροφής</h2>
+          <button type="button" class="cancel-edit-btn" id="cancel-edit-btn" onclick="cancelEdit()">❌ Ακύρωση</button>
+        </div>
+
+        <form id="food-form" onsubmit="handleSaveFood(event)">
+          <input type="hidden" id="food-id" value="">
+
+          <div class="form-group">
+            <label for="food-name">Όνομα Τροφής *</label>
+            <div class="voice-input-wrapper">
+              <input type="text" id="food-name" class="form-control" placeholder="π.χ. Αβοκάντο, Γλυκοπατάτα..." required>
+              <button type="button" class="mic-btn" id="mic-btn-name" onclick="startSpeech('food-name', 'mic-btn-name')" title="Φωνητική καταγραφή">
+                🎤
+              </button>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="food-category">Κατηγορία *</label>
+              <select id="food-category" class="form-control" required>
+                <!-- Populated dynamically -->
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="food-status">Αποδοχή / Αντίδραση</label>
+              <select id="food-status" class="form-control">
+                <option value="loved">❤️ Το λάτρεψε</option>
+                <option value="good" selected>😊 Το έφαγε καλά</option>
+                <option value="neutral">😐 Επιφυλακτικό / Ουδέτερο</option>
+                <option value="disliked">❌ Δεν του άρεσε</option>
+                <option value="allergy">⚠️ Πιθανή Αλλεργία / Κοκκινίλα</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="food-times">Πόσες φορές έχει φάει;</label>
+              <input type="number" id="food-times" class="form-control" value="1" min="1" required>
+            </div>
+
+            <div class="form-group">
+              <label for="food-date">Τελευταία Δοκιμή</label>
+              <input type="date" id="food-date" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="food-notes">Σχόλια / Παρατηρήσεις (με φωνή ή πληκτρολόγιο)</label>
+            <div class="voice-input-wrapper">
+              <textarea id="food-notes" class="form-control" rows="2" placeholder="π.χ. Έφαγε 3 κουταλιές, του άρεσε η υφή..."></textarea>
+              <button type="button" class="mic-btn" id="mic-btn-notes" onclick="startSpeech('food-notes', 'mic-btn-notes')" title="Φωνητική καταγραφή σχολίου">
+                🎤
+              </button>
+            </div>
+          </div>
+
+          <button type="submit" class="submit-btn" id="save-btn">💾 Αποθήκευση Τροφής</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- TAB 3: LOGS & TIMELINE -->
+    <div id="tab-logs" class="tab-content">
+      <div style="margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
+        <h3 style="font-size: 15px; color: #475569;">Ιστορικό Καταγραφών</h3>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span id="log-count" style="font-size: 12px; color: #94A3B8;">0 εγγραφές</span>
+          <button class="reset-all-btn" onclick="clearAllData()">🗑️ Καθαρισμός Όλων</button>
+        </div>
+      </div>
+      <div id="logs-container">
+        <!-- Log entries injected via JS -->
+      </div>
+    </div>
+
+    <!-- TAB 4: CATEGORY MANAGEMENT -->
+    <div id="tab-categories" class="tab-content">
+      <div class="manage-card">
+        <h3>📁 Διαχείριση Κατηγοριών</h3>
+        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 14px;">
+          Προσθέστε όποιες κατηγορίες θέλετε (π.χ. Σούπες, Finger Food, Σνακ) ή διαγράψτε αυτές που δεν χρειάζεστε.
+        </p>
+
+        <form id="new-cat-form" class="new-cat-box" onsubmit="handleAddCategory(event)">
+          <input type="text" id="new-cat-name" class="form-control" placeholder="π.χ. 🥣 Σούπες & Ζωμοί..." required>
+          <button type="submit" class="submit-btn" style="width: auto; padding: 10px 18px; margin-top: 0; white-space: nowrap;">
+            ➕ Προσθήκη
+          </button>
+        </form>
+
+        <div class="category-list-items" id="categories-list">
+          <!-- Injected via JS -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Status dictionary
+    const statusMap = {
+      loved: { text: "❤️ Το λάτρεψε", class: "status-loved" },
+      good: { text: "😊 Το έφαγε καλά", class: "status-good" },
+      neutral: { text: "😐 Επιφυλακτικό", class: "status-neutral" },
+      disliked: { text: "❌ Δεν του άρεσε", class: "status-disliked" },
+      allergy: { text: "⚠️ Πιθανή Αλλεργία", class: "status-allergy" }
+    };
+
+    const defaultCategories = [
+      "🍎 Φρούτα",
+      "🥦 Λαχανικά",
+      "🍗 Κρέας",
+      "🐟 Ψάρι",
+      "🌾 Δημητριακά",
+      "🧀 Γαλακτοκομικά",
+      "⚠️ Αλλεργιογόνα",
+      "🍽️ Άλλο"
+    ];
+
+    // Guarantee that if there were old mock items, we initialize cleanly
+    let categories = JSON.parse(localStorage.getItem('baby_categories_v2')) || defaultCategories;
+    let foods = JSON.parse(localStorage.getItem('baby_foods_v2')) || [];
+    let targetGoal = parseInt(localStorage.getItem('baby_goal')) || 100;
+    let currentFilter = 'all';
+
+    // Set today as default date in form
+    document.getElementById('food-date').value = new Date().toISOString().split('T')[0];
+
+    // Change target goal
+    function changeGoal() {
+      const newGoal = prompt("Ορίστε τον στόχο τροφών (π.χ. 50, 100, 150):", targetGoal);
+      if (newGoal && !isNaN(newGoal) && parseInt(newGoal) > 0) {
+        targetGoal = parseInt(newGoal);
+        localStorage.setItem('baby_goal', targetGoal);
+        updateProgress();
+      }
+    }
+
+    // Save states
+    function persistFoods() {
+      localStorage.setItem('baby_foods_v2', JSON.stringify(foods));
+      updateProgress();
+      renderFoods();
+      renderLogs();
+      renderCategoriesList();
+    }
+
+    function persistCategories() {
+      localStorage.setItem('baby_categories_v2', JSON.stringify(categories));
+      populateCategoryDropdown();
+      renderCategoryFilters();
+      renderCategoriesList();
+      renderFoods();
+    }
+
+    // Clear all data completely
+    function clearAllData() {
+      if (foods.length === 0) {
+        alert("Δεν υπάρχουν δεδομένα προς διαγραφή.");
+        return;
+      }
+      if (confirm("ΠΡΟΣΟΧΗ: Θέλετε σίγουρα να διαγράψετε ΟΛΕΣ τις καταχωρημένες τροφές; Η ενέργεια δεν αναιρείται.")) {
+        foods = [];
+        resetForm();
+        persistFoods();
+      }
+    }
+
+    // Switch Tabs
+    function switchTab(tabName) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+      if(tabName === 'foods') {
+        document.querySelectorAll('.tab-btn')[0].classList.add('active');
+        document.getElementById('tab-foods').classList.add('active');
+      } else if (tabName === 'add') {
+        document.getElementById('nav-add-btn').classList.add('active');
+        document.getElementById('tab-add').classList.add('active');
+      } else if (tabName === 'logs') {
+        document.querySelectorAll('.tab-btn')[2].classList.add('active');
+        document.getElementById('tab-logs').classList.add('active');
+      } else if (tabName === 'categories') {
+        document.querySelectorAll('.tab-btn')[3].classList.add('active');
+        document.getElementById('tab-categories').classList.add('active');
+      }
+    }
+
+    // Category Management
+    function handleAddCategory(e) {
+      e.preventDefault();
+      const input = document.getElementById('new-cat-name');
+      const name = input.value.trim();
+      if (!name) return;
+
+      if (categories.some(c => c.toLowerCase() === name.toLowerCase())) {
+        alert('Η κατηγορία αυτή υπάρχει ήδη!');
+        return;
+      }
+
+      categories.push(name);
+      input.value = '';
+      persistCategories();
+    }
+
+    function deleteCategory(catName) {
+      const foodsInCat = foods.filter(f => f.category === catName).length;
+      let msg = `Θέλετε σίγουρα να διαγράψετε την κατηγορία "${catName}";`;
+      if (foodsInCat > 0) {
+        msg += `\n\nΠροσοχή: Υπάρχουν ${foodsInCat} καταχωρημένες τροφές σε αυτή. Θα μεταφερθούν αυτόματα στην κατηγορία "🍽️ Άλλο".`;
+      }
+
+      if (confirm(msg)) {
+        if (!categories.includes("🍽️ Άλλο")) {
+          categories.push("🍽️ Άλλο");
+        }
+
+        foods.forEach(f => {
+          if (f.category === catName) {
+            f.category = "🍽️ Άλλο";
+          }
+        });
+
+        categories = categories.filter(c => c !== catName);
+        if (currentFilter === catName) {
+          currentFilter = 'all';
+        }
+
+        persistFoods();
+        persistCategories();
+      }
+    }
+
+    function renderCategoriesList() {
+      const container = document.getElementById('categories-list');
+      container.innerHTML = categories.map(cat => {
+        const count = foods.filter(f => f.category === cat).length;
+        return `
+          <div class="category-item-row">
+            <span class="category-item-name">
+              ${escapeHtml(cat)}
+              <span class="cat-food-count">(${count} ${count === 1 ? 'τροφή' : 'τροφές'})</span>
+            </span>
+            <button class="btn-action-pill btn-delete" onclick="deleteCategory('${escapeHtml(cat)}')" title="Διαγραφή κατηγορίας">
+              🗑️ Διαγραφή
+            </button>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function populateCategoryDropdown(selectedVal = '') {
+      const select = document.getElementById('food-category');
+      select.innerHTML = categories.map(cat => `
+        <option value="${escapeHtml(cat)}" ${cat === selectedVal ? 'selected' : ''}>${escapeHtml(cat)}</option>
+      `).join('');
+    }
+
+    function renderCategoryFilters() {
+      const container = document.getElementById('category-filters');
+      let chipsHtml = `
+        <button class="filter-chip ${currentFilter === 'all' ? 'active' : ''}" onclick="filterCategory('all')">Όλα</button>
+      `;
+
+      chipsHtml += categories.map(cat => `
+        <button class="filter-chip ${currentFilter === cat ? 'active' : ''}" onclick="filterCategory('${escapeHtml(cat)}')">
+          ${escapeHtml(cat)}
+        </button>
+      `).join('');
+
+      container.innerHTML = chipsHtml;
+    }
+
+    function filterCategory(cat) {
+      currentFilter = cat;
+      renderCategoryFilters();
+      renderFoods();
+    }
+
+    function updateProgress() {
+      const count = foods.length;
+      const pct = Math.min(100, Math.round((count / targetGoal) * 100));
+      document.getElementById('progress-text').innerText = `${count} / ${targetGoal} Τροφές (${pct}%)`;
+      document.getElementById('progress-bar-fill').style.width = `${pct}%`;
+    }
+
+    function renderFoods() {
+      const container = document.getElementById('foods-container');
+      const filtered = currentFilter === 'all' 
+        ? foods 
+        : foods.filter(f => f.category === currentFilter);
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-state-icon">🥣</div>
+            <p style="font-weight: 600; margin-bottom: 6px;">Δεν υπάρχουν καταχωρημένες τροφές ${currentFilter !== 'all' ? 'σε αυτή την κατηγορία' : 'ακόμα'}.</p>
+            <p style="font-size: 13px;">Πατήστε στην καρτέλα <b>«➕ Προσθήκη»</b> για να ξεκινήσετε το ταξίδι των γεύσεων!</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map(food => {
+        const stat = statusMap[food.status] || statusMap['good'];
+        return `
+          <div class="food-card">
+            <div class="food-card-top">
+              <div class="food-title-row">
+                <span class="food-name">${escapeHtml(food.name)}</span>
+                <span class="cat-badge">${escapeHtml(food.category)}</span>
+              </div>
+              <span class="food-status-badge ${stat.class}">${stat.text}</span>
+            </div>
+
+            ${food.notes ? `<div class="food-notes">“${escapeHtml(food.notes)}”</div>` : ''}
+
+            <div class="food-meta">
+              <span>📅 Τελευταία: ${formatDate(food.lastDate)}</span>
+              <span>🔢 Δοκιμές: <b>${food.times}</b></span>
+            </div>
+
+            <div class="food-actions">
+              <div class="counter-group">
+                <span style="font-size: 11px; color:#64748B;">Δοκιμές:</span>
+                <button class="counter-btn" onclick="updateCount('${food.id}', -1)">-</button>
+                <span class="count-number">${food.times}</span>
+                <button class="counter-btn" onclick="updateCount('${food.id}', 1)">+</button>
+              </div>
+
+              <div class="action-icons">
+                <button class="btn-action-pill" onclick="editFood('${food.id}')" title="Επεξεργασία">✏️ Επεξεργασία</button>
+                <button class="btn-action-pill btn-delete" onclick="deleteFood('${food.id}')" title="Διαγραφή">🗑️</button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderLogs() {
+      const logContainer = document.getElementById('logs-container');
+      document.getElementById('log-count').innerText = `${foods.length} τροφές`;
+
+      const sorted = [...foods].sort((a, b) => new Date(b.lastDate) - new Date(a.lastDate));
+
+      if (sorted.length === 0) {
+        logContainer.innerHTML = `
+          <div class="empty-state">
+            <p>Το ιστορικό είναι άδειο. Οι καταγραφές σας θα εμφανιστούν αυτόματα εδώ.</p>
+          </div>
+        `;
+        return;
+      }
+
+      logContainer.innerHTML = sorted.map(item => {
+        const stat = statusMap[item.status] || statusMap['good'];
+        return `
+          <div class="log-item">
+            <div class="log-left">
+              <h4>${escapeHtml(item.name)} <span style="font-weight: normal; font-size: 12px; color: #64748B;">(${escapeHtml(item.category)})</span></h4>
+              <p>${stat.text} • <b>${item.times}</b> ${item.times === 1 ? 'φορά' : 'φορές'}</p>
+              ${item.notes ? `<p style="color:#475569; font-size:12px; margin-top:3px;">“${escapeHtml(item.notes)}”</p>` : ''}
+            </div>
+            <div class="log-right">
+              <span class="log-date">📅 ${formatDate(item.lastDate)}</span>
+              <button class="btn-action-pill" onclick="editFood('${item.id}')" style="font-size: 11px; padding: 3px 8px;">
+                ✏️ Επεξεργασία
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function formatDate(dateStr) {
+      if(!dateStr) return "-";
+      const parts = dateStr.split('-');
+      if(parts.length === 3) {
+        return `${parts[2]}/${parts[1]}/${parts[0]}`;
+      }
+      return dateStr;
+    }
+
+    function escapeHtml(text) {
+      if (!text) return "";
+      return text.replace(/[&<>"']/g, function(m) {
+        return {
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#39;'
+        }[m];
+      });
+    }
+
+    function handleSaveFood(event) {
+      event.preventDefault();
+      const id = document.getElementById('food-id').value;
+      const name = document.getElementById('food-name').value.trim();
+      const category = document.getElementById('food-category').value;
+      const status = document.getElementById('food-status').value;
+      const times = parseInt(document.getElementById('food-times').value) || 1;
+      const lastDate = document.getElementById('food-date').value;
+      const notes = document.getElementById('food-notes').value.trim();
+
+      if(!name) return;
+
+      if(id) {
+        const idx = foods.findIndex(f => f.id === id);
+        if(idx !== -1) {
+          foods[idx] = { id, name, category, status, times, lastDate, notes };
+        }
+      } else {
+        const newFood = {
+          id: Date.now().toString(),
+          name,
+          category,
+          status,
+          times,
+          lastDate,
+          notes
+        };
+        foods.unshift(newFood);
+      }
+
+      resetForm();
+      persistFoods();
+      switchTab('foods');
+    }
+
+    function updateCount(id, delta) {
+      const food = foods.find(f => f.id === id);
+      if(food) {
+        food.times = Math.max(1, food.times + delta);
+        if (delta > 0) {
+          food.lastDate = new Date().toISOString().split('T')[0];
+        }
+        persistFoods();
+      }
+    }
+
+    function editFood(id) {
+      const food = foods.find(f => f.id === id);
+      if(!food) return;
+
+      document.getElementById('food-id').value = food.id;
+      document.getElementById('food-name').value = food.name;
+      populateCategoryDropdown(food.category);
+      document.getElementById('food-status').value = food.status;
+      document.getElementById('food-times').value = food.times;
+      document.getElementById('food-date').value = food.lastDate;
+      document.getElementById('food-notes').value = food.notes || '';
+
+      document.getElementById('form-card-container').classList.add('editing-mode');
+      document.getElementById('form-title').innerText = `✏️ Επεξεργασία: ${food.name}`;
+      document.getElementById('save-btn').innerText = '💾 Αποθήκευση Αλλαγών';
+      document.getElementById('cancel-edit-btn').style.display = 'inline-block';
+      document.getElementById('nav-add-btn').innerText = '✏️ Επεξεργασία';
+
+      switchTab('add');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function cancelEdit() {
+      resetForm();
+      switchTab('foods');
+    }
+
+    function resetForm() {
+      document.getElementById('food-form').reset();
+      document.getElementById('food-id').value = '';
+      document.getElementById('food-times').value = '1';
+      document.getElementById('food-date').value = new Date().toISOString().split('T')[0];
+      populateCategoryDropdown();
+      
+      document.getElementById('form-card-container').classList.remove('editing-mode');
+      document.getElementById('form-title').innerText = '➕ Καταχώριση Νέας Τροφής';
+      document.getElementById('save-btn').innerText = '💾 Αποθήκευση Τροφής';
+      document.getElementById('cancel-edit-btn').style.display = 'none';
+      document.getElementById('nav-add-btn').innerText = '➕ Προσθήκη';
+    }
+
+    function deleteFood(id) {
+      const food = foods.find(f => f.id === id);
+      const name = food ? `"${food.name}"` : 'αυτή την τροφή';
+      if(confirm(`Θέλετε σίγουρα να διαγράψετε ${name};`)) {
+        foods = foods.filter(f => f.id !== id);
+        if(document.getElementById('food-id').value === id) {
+          resetForm();
+        }
+        persistFoods();
+      }
+    }
+
+    function startSpeech(targetInputId, btnId) {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SpeechRecognition) {
+        alert("Η φωνητική αναγνώριση δεν υποστηρίζεται από αυτό το πρόγραμμα περιήγησης. Προτείνεται Google Chrome ή Safari.");
+        return;
+      }
+
+      const recognition = new SpeechRecognition();
+      recognition.lang = 'el-GR';
+      recognition.interimResults = false;
+      recognition.maxAlternatives = 1;
+
+      const btn = document.getElementById(btnId);
+      btn.classList.add('recording');
+
+      recognition.onstart = () => {
+        btn.innerText = '🔴';
+      };
+
+      recognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript;
+        const target = document.getElementById(targetInputId);
+        if (target.value) {
+          target.value += ' ' + transcript;
+        } else {
+          target.value = transcript;
+        }
+      };
+
+      recognition.onerror = (event) => {
+        console.error("Speech recognition error:", event.error);
+        btn.classList.remove('recording');
+        btn.innerText = '🎤';
+      };
+
+      recognition.onend = () => {
+        btn.classList.remove('recording');
+        btn.innerText = '🎤';
+      };
+
+      recognition.start();
+    }
+
+    function exportToPDF() {
+      window.print();
+    }
+
+    persistCategories();
+    persistFoods();
+  </script>
+</body>
+</html>
