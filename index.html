@@ -731,8 +731,7 @@
           <div class="form-group">
             <label for="food-name">Όνομα Τροφής *</label>
             <div class="voice-input-wrapper">
-              <input type="text" id="food-name" list="existing-foods-datalist" class="form-control" placeholder="π.χ. Αβοκάντο, Γλυκοπατάτα..." required>
-              <datalist id="existing-foods-datalist"></datalist>
+              <input type="text" id="food-name" class="form-control" placeholder="π.χ. Αβοκάντο, Γλυκοπατάτα..." required>
               <button type="button" class="mic-btn" id="mic-btn-name" onclick="startSpeech('food-name', 'mic-btn-name')" title="Φωνητική καταγραφή">
                 🎤
               </button>
@@ -864,20 +863,12 @@
     }
 
     // Save states
-    function updateFoodsDatalist() {
-      const dl = document.getElementById('existing-foods-datalist');
-      if (!dl) return;
-      const uniqueNames = [...new Set(foods.map(f => f.name.trim()))];
-      dl.innerHTML = uniqueNames.map(n => `<option value="${escapeHtml(n)}">`).join('');
-    }
-
     function persistFoods() {
       localStorage.setItem('baby_foods_v2', JSON.stringify(foods));
       updateProgress();
       renderFoods();
       renderLogs();
       renderCategoriesList();
-      updateFoodsDatalist();
     }
 
     function persistCategories() {
@@ -1012,15 +1003,10 @@
       renderFoods();
     }
 
-    function getUniqueFoodsCount() {
-      const uniqueNames = new Set(foods.map(f => f.name.trim().toLowerCase()).filter(n => n.length > 0));
-      return uniqueNames.size;
-    }
-
     function updateProgress() {
-      const count = getUniqueFoodsCount();
+      const count = foods.length;
       const pct = Math.min(100, Math.round((count / targetGoal) * 100));
-      document.getElementById('progress-text').innerText = `${count} / ${targetGoal} Μοναδικές Τροφές (${pct}%)`;
+      document.getElementById('progress-text').innerText = `${count} / ${targetGoal} Τροφές (${pct}%)`;
       document.getElementById('progress-bar-fill').style.width = `${pct}%`;
     }
 
@@ -1148,46 +1134,21 @@
       if(!name) return;
 
       if(id) {
-        // Editing existing record
         const idx = foods.findIndex(f => f.id === id);
         if(idx !== -1) {
           foods[idx] = { id, name, category, status, times, lastDate, notes };
         }
       } else {
-        // Check if food already exists (case-insensitive)
-        const existingIdx = foods.findIndex(f => f.name.trim().toLowerCase() === name.toLowerCase());
-        
-        if (existingIdx !== -1) {
-          const existing = foods[existingIdx];
-          const confirmMerge = confirm(
-            `Η τροφή "${existing.name}" υπάρχει ήδη στη λίστα με ${existing.times} δοκιμές!\n\n` +
-            `Θέλετε να ενημερώσουμε την υπάρχουσα καρτέλα προσθέτοντας +${times} δοκιμή/ές και ενημερώνοντας την ημερομηνία και τα σχόλια;`
-          );
-          
-          if (confirmMerge) {
-            existing.times += times;
-            existing.lastDate = lastDate;
-            existing.status = status;
-            existing.category = category;
-            if (notes) {
-              existing.notes = existing.notes ? `${existing.notes} | ${notes}` : notes;
-            }
-          } else {
-            return; // Cancel save to prevent unwanted duplicate
-          }
-        } else {
-          // Add new unique food
-          const newFood = {
-            id: Date.now().toString(),
-            name,
-            category,
-            status,
-            times,
-            lastDate,
-            notes
-          };
-          foods.unshift(newFood);
-        }
+        const newFood = {
+          id: Date.now().toString(),
+          name,
+          category,
+          status,
+          times,
+          lastDate,
+          notes
+        };
+        foods.unshift(newFood);
       }
 
       resetForm();
